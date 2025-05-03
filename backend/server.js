@@ -1,41 +1,38 @@
 import express from 'express';
-import { PORT, mongoDBURL } from './config.js';
+import cors from 'cors';  
+import countryRoutes from './routes/countriesRoute.js'; 
 import mongoose from 'mongoose';
-import booksRoute from './routes/booksRoute.js';
-import cors from 'cors';
+import authRoutes from './routes/authRoutes.js'; 
+import dotenv from 'dotenv';
+
+
+dotenv.config();
+
+mongoose.connect(process.env.Mongo_DB)
+  .then(() => console.log("MongoDB connected successfully!"))
+  .catch(err => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1);
+  });
+
+
 
 const app = express();
+const port = 8080;
 
-// Middleware for parsing request body
+// Apply CORS middleware globally for all routes
+app.use(cors()); 
+
+// Middleware to parse JSON requests
 app.use(express.json());
 
-// Middleware for handling CORS POLICY
-// Option 1: Allow All Origins with Default of cors(*)
-app.use(cors());
-// Option 2: Allow Custom Origins
-// app.use(
-//   cors({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-//   })
-// );
 
-app.get('/', (request, response) => {
-  console.log(request);
-  return response.status(234).send('Welcome To MERN Stack Tutorial');
+
+// Use country routes
+app.use('/api', countryRoutes);
+app.use('/api/auth', authRoutes);
+
+// Start the server
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
 });
-
-app.use('/books', booksRoute);
-
-mongoose
-  .connect(mongoDBURL)
-  .then(() => {
-    console.log('App connected to database');
-    app.listen(PORT, () => {
-      console.log(`App is listening to port: ${PORT}`);
-    });
-  })
-  .catch((error) => {
-    console.log(error);
-  });
