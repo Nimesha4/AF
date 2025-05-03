@@ -130,7 +130,7 @@ const Register = () => {
                   required
                 />
                 <label htmlFor="terms" className="ml-2 block text-sm text-gray-700">
-                  I agree to the <a href="#" className="text-indigo-600 hover:text-indigo-500">Terms and Conditions</a>
+                  I agree to the <a href="/" className="text-indigo-600 hover:text-indigo-500">Terms and Conditions</a>
                 </label>
               </div>
               
