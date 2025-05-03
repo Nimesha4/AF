@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getFavorites, toggleFavorite, isFavorite } from '../utils/favorites';
+import { getFavorites, } from '../utils/favorites';
 import Header from './Header';
 import Footer from './Footer';
 import { Globe, Heart, MapPin, X, ArrowLeft } from 'lucide-react';
