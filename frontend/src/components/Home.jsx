@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './HHeader';
 import Footer from '../components/Footer';
 import { Globe, Search, Heart, Map, Info } from 'lucide-react';
+import img from '../assets/wMap.png';
 
 export default function Home() {
   const [featuredCountries, setFeaturedCountries] = useState([]);
@@ -40,7 +41,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-50"></div>
           <img 
-            src="/api/placeholder/1920/1080" 
+            src={img}
             alt="World map background" 
             className="w-full h-full object-cover"
           />
