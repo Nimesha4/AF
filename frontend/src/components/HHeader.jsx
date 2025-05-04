@@ -141,6 +141,9 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-pink-100 absolute w-full shadow-lg rounded-b-2xl overflow-hidden">
             <div className="px-4 pt-3 pb-4 space-y-1">
+            <Link to="/contact" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+                Contact
+              </Link>
               <Link to="/countries" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200" 
               >
                 Countries
@@ -151,9 +154,7 @@ const Header = () => {
               <Link to="/about" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
                 About Us
               </Link>
-              <Link to="/contact" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
-                Contact
-              </Link>
+             
             </div>
             <div className="pt-4 pb-5 border-t border-pink-100 bg-gradient-to-r from-blue-50 to-pink-50">
               <div className="flex items-center justify-center px-5">
