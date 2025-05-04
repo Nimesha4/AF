@@ -13,7 +13,7 @@ const Countries = () => {
   const [regionCode, setRegionCode] = useState('');
   const [displayMode, setDisplayMode] = useState('globe');
   const [favorites, setFavorites] = useState(getFavorites());
-  
+
   const navigate = useNavigate();
 
   const handleToggleFavorite = (country) => {
@@ -24,11 +24,13 @@ const Countries = () => {
   const handleFilter = async (region) => {
     setLoading(true);
     try {
-      const res = await axios.get(region === 'All' ? '/countries' : `/countries/region/${region}`);
+      const res = region === 'All'
+        ? await axios.get('https://restcountries.com/v3.1/all')
+        : await axios.get(`https://restcountries.com/v3.1/region/${region}`);
       setCountries(res.data);
     } catch (err) {
       console.error(err.response?.data || err.message);
-      setError(err.response?.data?.error || 'Failed to fetch countries.');
+      setError(err.response?.data?.message || 'Failed to fetch countries.');
     } finally {
       setLoading(false);
     }
@@ -41,9 +43,9 @@ const Countries = () => {
     }
     setLoading(true);
     try {
-      const response = await axios.get(`/countries/name/${searchTerm}`);
+      const response = await axios.get(`https://restcountries.com/v3.1/name/${searchTerm}`);
       if (Array.isArray(response.data)) {
-        const exactMatches = response.data.filter(country => 
+        const exactMatches = response.data.filter(country =>
           country.name.common.toLowerCase() === searchTerm.toLowerCase()
         );
         setCountries(exactMatches.length > 0 ? exactMatches : [response.data[0]]);
@@ -57,7 +59,7 @@ const Countries = () => {
         throw new Error('Invalid response format');
       }
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to find country.');
+      setError(err.response?.data?.message || 'Failed to find country.');
       setCountries([]);
     } finally {
       setLoading(false);
@@ -72,7 +74,7 @@ const Countries = () => {
       setCountries(response.data);
       setError(null);
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to find country by code.');
+      setError(err.response?.data?.message || 'Failed to find country by code.');
       setCountries([]);
     } finally {
       setLoading(false);
@@ -83,10 +85,10 @@ const Countries = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get('/countries');
+      const response = await axios.get('https://restcountries.com/v3.1/all');
       setCountries(response.data);
     } catch (err) {
-      setError(err.response?.data?.error || 'Failed to fetch countries.');
+      setError(err.response?.data?.message || 'Failed to fetch countries.');
     } finally {
       setLoading(false);
     }
@@ -105,7 +107,7 @@ const Countries = () => {
   };
 
   const getRegionColor = (region) => {
-    switch(region) {
+    switch (region) {
       case 'Africa': return 'from-yellow-500 to-orange-500';
       case 'Americas': return 'from-blue-500 to-indigo-500';
       case 'Asia': return 'from-red-500 to-pink-500';
@@ -116,7 +118,7 @@ const Countries = () => {
   };
 
   const getRegionIcon = (region) => {
-    switch(region) {
+    switch (region) {
       case 'Africa': return '🌍';
       case 'Americas': return '🌎';
       case 'Asia': return '🌏';
@@ -130,12 +132,12 @@ const Countries = () => {
     const radius = 38;
     const angleStep = (2 * Math.PI) / total;
     const angle = index * angleStep;
-    
+
     const x = 50 + radius * Math.cos(angle);
     const y = 50 + radius * Math.sin(angle);
-    
+
     const scale = 0.8 + Math.random() * 0.4;
-    
+
     return {
       left: `${x}%`,
       top: `${y}%`,
