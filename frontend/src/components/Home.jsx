@@ -33,7 +33,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-indigo-300 to-purple-200 text-white">
       <Header />
       
       {/* Hero Section */}
@@ -67,31 +67,31 @@ export default function Home() {
       {/* Features Section */}
       <div className="py-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Discover What We Offer</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black/60">Discover What We Offer</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-blue-50 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-blue-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Map size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Interactive Maps</h3>
-              <p className="text-blue-200">Explore countries using our interactive map interface. Zoom, pan, and click to discover more information.</p>
+              <h3 className="text-xl text-black font-bold mb-2">Interactive Maps</h3>
+              <p className="text-black">Explore countries using our interactive map interface. Zoom, pan, and click to discover more information.</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-blue-50 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Info size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Detailed Information</h3>
-              <p className="text-blue-200">Access comprehensive data about countries including population, languages, currencies, and more.</p>
+              <h3 className="text-xl text-black font-bold mb-2">Detailed Information</h3>
+              <p className="text-black">Access comprehensive data about countries including population, languages, currencies, and more.</p>
             </div>
             
-            <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
+            <div className="bg-blue-50 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:transform hover:scale-105 transition-all duration-300">
               <div className="bg-pink-600 w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Heart size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-2">Save Favorites</h3>
-              <p className="text-blue-200">Create your own collection of favorite countries to quickly access the information you care about most.</p>
+              <h3 className="text-xl text-black font-bold mb-2">Save Favorites</h3>
+              <p className="text-black">Create your own collection of favorite countries to quickly access the information you care about most.</p>
             </div>
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function Home() {
       <div className="py-16 px-6 bg-indigo-800/30">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Featured Countries</h2>
-          <p className="text-center text-blue-200 mb-12">Explore these highlighted nations from around the world</p>
+          <p className="text-center text-blue-00 mb-12">Explore these highlighted nations from around the world</p>
           
           {loading ? (
             <div className="flex justify-center">
@@ -146,11 +146,11 @@ export default function Home() {
       </div>
       
       {/* Call to Action Section */}
-      <div className="py-20 px-6 text-center bg-gradient-to-r from-purple-800 to-indigo-800">
+      <div className="py-20 px-6 text-center bg-gradient-to-r from-purple-400 to-indigo-400">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Explore the World?</h2>
-          <p className="text-xl text-blue-200 mb-8">Start your journey by discovering incredible facts about countries across all continents.</p>
-          <Link to="/login" className="px-10 py-4 bg-blue-600 hover:bg-blue-700 rounded-full font-bold text-lg transition-colors duration-300 inline-block">
+          <p className="text-xl text-blue-00 mb-8">Start your journey by discovering incredible facts about countries across all continents.</p>
+          <Link to="/login" className="px-10 py-4 bg-purple-600 hover:bg-purple-500 rounded-full font-bold text-lg transition-colors duration-300 inline-block">
             Begin Your Adventure
           </Link>
         </div>
