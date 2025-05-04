@@ -84,16 +84,27 @@ const Header = () => {
               </Link>
             </div>
             
-            
+            {/* Desktop navigation */}
+            <nav className="hidden md:flex space-x-1">
+              <Link to="/countries" className="text-purple-600 hover:text-pink-500 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full hover:bg-white hover:shadow-sm mx-1">
+                Countries
+              </Link>
+              <Link to="/gallery" className="text-purple-600 hover:text-pink-500 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full hover:bg-white hover:shadow-sm mx-1">
+                Favorites
+              </Link>
+              <Link to="/about" className="text-purple-600 hover:text-pink-500 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full hover:bg-white hover:shadow-sm mx-1">
+                About Us
+              </Link>
+              <Link to="/contact" className="text-purple-600 hover:text-pink-500 px-4 py-2 text-sm font-medium transition-all duration-200 rounded-full hover:bg-white hover:shadow-sm mx-1">
+                Contact
+              </Link>
+            </nav>
             
             {/* Authentication buttons */}
             <div className="hidden md:flex items-center">
-            <Link to="/login" className="block px-4 py-2 text-base font-medium text-indigo-600 hover:text-indigo-800">
-                  Sign In
-                </Link>
-              <Link to="/register" className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-500 hover:to-purple-500 rounded-full shadow-sm transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md">
+              <Link to="/login" className="px-5 py-2 text-sm font-medium text-white bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-500 hover:to-purple-500 rounded-full shadow-sm transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md">
                 <span className="flex items-center">
-                  <span>Sign Up</span>
+                  <span>Log Out</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                   </svg>
@@ -127,22 +138,30 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-pink-100 absolute w-full shadow-lg rounded-b-2xl overflow-hidden">
             <div className="px-4 pt-3 pb-4 space-y-1">
-               
+              <Link to="/countries" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200" 
+              >
+                Countries
+              </Link>
+              <Link to="/gallery" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+                Favorites
+              </Link>
+              <Link to="/about" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+                About Us
+              </Link>
+              <Link to="/contact" className="block px-4 py-3 rounded-full text-base font-medium text-purple-600 hover:text-pink-500 hover:bg-pink-50 transition-colors duration-200">
+                Contact
+              </Link>
             </div>
             <div className="pt-4 pb-5 border-t border-pink-100 bg-gradient-to-r from-blue-50 to-pink-50">
               <div className="flex items-center justify-center px-5">
-              <Link to="/login" className="block px-4 py-2 text-base font-medium text-indigo-600 hover:text-indigo-800">
-                  Sign In
-                </Link>
                 <Link to="/login" className="block w-full px-4 py-3 text-center text-base font-medium text-white bg-gradient-to-r from-teal-400 to-purple-400 hover:from-teal-500 hover:to-purple-500 rounded-full shadow-sm transition-all duration-200">
                   <span className="flex items-center justify-center">
-                    <span>Sign Up</span>
+                    <span>Log Out</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                     </svg>
                   </span>
                 </Link>
-                 
               </div>
             </div>
           </div>
