@@ -25,7 +25,7 @@ const Countries = () => {
     setLoading(true);
     try {
       const res = region === 'All'
-        ? await axios.get('https://restcountries.com/v3.1/all')
+        ? await axios.get('https://restcountries.com/v3.1/all') //Api gave by SLIIT
         : await axios.get(`https://restcountries.com/v3.1/region/${region}`);
       setCountries(res.data);
     } catch (err) {
@@ -147,7 +147,7 @@ const Countries = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-100 text-white">
       <Header /><br></br>
       <div className="max-w-6xl mx-auto px-6">
         <div className="pt-12 pb-6 text-center relative overflow-hidden">
@@ -156,10 +156,10 @@ const Countries = () => {
           </div>
           
           <div className="max-w-6xl mx-auto px-6 relative z-10">
-            <h1 className="text-5xl font-bold mb-4 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-purple-300">
+            <h1 className="text-5xl font-bold mb-4 tracking-tight bg-clip-text text-transparent bg-white">
               Global Explorer
             </h1>
-            <p className="text-blue-200 text-lg max-w-2xl mx-auto">
+            <p className="text-white text-lg max-w-2xl mx-auto">
               Discover countries from around the world in an interactive experience
             </p>
           </div>
@@ -169,7 +169,7 @@ const Countries = () => {
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-blue-200">Search by Name</label>
+                <label className="block text-sm font-medium text-white">Search by Name</label>
                 <div className="flex shadow-sm rounded-md overflow-hidden max-w-xs">
                   <input
                     type="text"
@@ -190,7 +190,7 @@ const Countries = () => {
               </div>
               
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-blue-200">Search by Region Code</label>
+                <label className="block text-sm font-medium text-white">Search by Region Code</label>
                 <div className="flex shadow-sm rounded-md overflow-hidden max-w-xs">
                   <input
                     type="text"
@@ -211,7 +211,7 @@ const Countries = () => {
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-blue-200">Filter by Region</label>
+                <label className="block text-sm font-medium text-white">Filter by Region</label>
                 <select
                   onChange={(e) => handleFilter(e.target.value)}
                   className="w-full p-3 bg-white/10 border border-white/20 text-black rounded-md shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-blue-400"

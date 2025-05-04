@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getFavorites, } from '../utils/favorites';
+import { getFavorites, toggleFavorite, isFavorite } from '../utils/favorites';
 import Header from './Header';
 import Footer from './Footer';
 import { Globe, Heart, MapPin, X, ArrowLeft } from 'lucide-react';
@@ -61,7 +61,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-900 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 to-indigo-100 text-white">
       <Header />
       
       <main className="container mx-auto px-4 py-8 relative">
